@@ -1,0 +1,33 @@
+
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+blockquote { margin: 10px 10px 20px; padding: 9px; background-color: #f8f8f8; color: #666; border-left: 5px solid #ddd; font: 14px/20px Georgia, Times, serif; quotes: "\201C" "\201D"; }
+blockquote p { margin: 0; }
+blockquote:before { content: open-quote; font-weight: bold; }
+blockquote:after  { content: close-quote; font-weight: bold; }
+
+/* List */
+ul { margin-bottom: 20px; list-style-position:inside; }
+ol { margin-bottom: 20px; list-style-position:inside; }
+ul ul, ol ol { margin-bottom:0; }
+
+/* Form */
+fieldset { position: relative; border-top:1px solid #ccc; padding: 10px; margin-bottom:20px; }
+fieldset legend { font-weight:bold; font-size:16px; padding: 0 5px; }
+
+/* Table */
+table { margin-bottom: 20px; width:100%; }
+th { font-weight: bold; }
+td { text-align: left; }
+tfoot { font-style: italic; }
+
+/* Print */
+@media print {
+	* {
+		text-shadow: none !important;
+		background: transparent !important;
+		box-shadow: none !important;
+		color: #000 !important;
+	}

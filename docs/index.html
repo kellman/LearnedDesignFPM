@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110853731-1"></script>
+	<script>
+  		window.dataLayer = window.dataLayer || [];
+  		function gtag(){dataLayer.push(arguments);}
+  		gtag('js', new Date());
+  		gtag('config', 'UA-110853731-1');
+	</script>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>DiffuserCam</title>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<link href="styles/minimal.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- Navigation bar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container-nav">	
+		<div class="container-fluid">
+    		<ul class="nav navbar-nav">
+      			<li class="nav-item active"><a href="index.html">Home</a></li>
+      			<li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Build-your-own tutorial <span class="caret"></span></a>
+                     <ul class="dropdown-menu">
+                          <li><a class="nav-item dropdown-item" href="quickstart.html">Quick Start Guide</a></li>
+                          <li><a class="nav-item dropdown-item" href="tutorial.html">Full Tutorial</a></li>
+                        </ul>
+                </li>
+      			<li class="nav-item"><a href="gallery.html">Gallery</a></li>
+      			<li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Code <span class="caret"></span></a>
+                     <ul class="dropdown-menu">
+                          <li><a class="nav-item dropdown-item" href="https://github.com/Waller-Lab/DiffuserCam">3D Algorithm Code</a></li>
+                          <li><a class="nav-item dropdown-item" href="https://github.com/Waller-Lab/DiffuserCam-Tutorial">2D Tutorial Code</a></li>
+                        </ul>
+                </li>
+    		</ul>
+      	</div>
+    </div>
+</nav> 
+
+<div class="container">
+
+	<div class="row">	
+		<h1><b>Data-driven Design for Fourier Ptychographic Microscopy</b></h1>
+		<h5><b><a href="https://people.eecs.berkeley.edu/~kellman/">Michael Kellman</a>
+		<img class="center" src="resources/setup.png" style="width:600px"> 
+	</div>
+
+
+	<div class="row">
+		<h3><b>Abstract</b></h3>
+		<p>We demonstrate a compact and easy-to-build computational camera for single-shot 3D imaging. Our lensless system consists solely of a diffuser placed in front of a standard image sensor. Every point within the volumetric field-of-view projects a unique pseudorandom pattern of caustics on the sensor. By using a physical approximation and simple calibration scheme, we solve the large-scale inverse problem in a computationally efficient way. The caustic patterns enable compressed sensing, which exploits sparsity in the sample to solve for more 3D voxels than pixels on the 2D sensor. Our 3D reconstruction grid is chosen to match the experimentally measured two-point optical resolution, resulting in 100 million voxels being reconstructed from a single 1.3 megapixel image. However, the effective resolution varies significantly with scene content. Because this effect is common to a wide range of computational cameras, we provide new theory for analyzing resolution in such systems.</p>
+	</div>
+
+	<div class="row">
+		<h3><b>Resources</b></h3>
+		<ul>
+			<li>Open source code on <b><a href="https://github.com/Waller-Lab/DiffuserCam">GitHub</a></b></li>
+			<li>Open access PDF and supplemental materials through <b><a href="https://www.osapublishing.org/optica/abstract.cfm?uri=optica-5-1-1">OSA</a></b></li>
+			<li>Build-your-own DiffuserCam <b><a href="tutorial.html">tutorial</a></b>
+			<li><b><a href="gallery.html">Gallery</a></b> of DiffuserCam reconstructions</li>
+		</ul>
+	</div>
+
+	<div class="row">
+		<h3><b>Conference Papers</b></h3>
+
+		<p>Grace Kuo*, Nick Antipa*, Ren Ng, and Laura Waller. "DiffuserCam: Diffuser-Based Lensless Cameras." <i>Computational Optical Sensing and Imaging.</i> Optical Society of America, 2017.</p>
+
+		<p>Nick Antipa*, Grace Kuo*, Ren Ng, and Laura Waller. "3D DiffuserCam: Single-Shot Compressive Lensless Imaging." <i>Computational Optical Sensing and Imaging.</i> Optical Society of America, 2017.</p>
+
+		<p>Grace Kuo, Nick Antipa, Ren Ng, and Laura Waller. "3D Fluorescence Microscopy with DiffuserCam." <i>Computational Optical Sensing and Imaging.</i> Optical Society of America, 2018.</p>
+	</div>
+
+	<div class="row">
+		<h3><b>Awards</b></h3>
+		<p>Best Demo (people's choice) at the International Conference on Computational Photography (ICCP) 2017:<br />
+		DiffuserCam: A Diffuser Based Lensless Camera<br />
+		Grace Kuo, Nick Antipa, Shreyas Parthasarathy, Camille Biscarrat, Ben Mildenhall, Ren Ng, and Laura Waller</p>
+	</div>
+
+		
+
+</div>
+<nav class="navbar navbar-default">
+</nav>
+
+</body>
+</html>
