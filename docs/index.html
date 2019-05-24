@@ -1,103 +1,203 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
 <head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-<!-- 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110853731-1"></script>
-	<script>
-  		window.dataLayer = window.dataLayer || [];
-  		function gtag(){dataLayer.push(arguments);}
-  		gtag('js', new Date());
-  		gtag('config', 'UA-110853731-1');
-	</script> -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135686194-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-	<title>Learned Design for Fourier Ptychographic Microscopy</title>
-
-	<!-- Bootstrap -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	
-	<link href="./styles/style.css" rel="stylesheet">
+    gtag('config', 'UA-135686194-1');
+  </script>
+  
+  <meta name=viewport content=“width=800”>
+  <meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
+  <style type="text/css">
+    /* Color scheme stolen from Sergey Karayev */
+    
+    a {
+      color: #1772d0;
+      text-decoration: none;
+    }
+    
+    a:focus,
+    a:hover {
+      color: #f09228;
+      text-decoration: none;
+    }
+    
+    body,
+    td,
+    th,
+    tr,
+    p,
+    a {
+      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+      font-size: 14px
+    }
+    
+    strong {
+      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+    
+    heading {
+      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+      font-size: 22px;
+    }
+    
+    papertitle {
+      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 700
+    }
+    
+    name {
+      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+      font-size: 32px;
+    }
+    
+    .one {
+      width: 160px;
+      height: 160px;
+      position: relative;
+    }
+    
+    .two {
+      width: 160px;
+      height: 160px;
+      position: absolute;
+      transition: opacity .2s ease-in-out;
+      -moz-transition: opacity .2s ease-in-out;
+      -webkit-transition: opacity .2s ease-in-out;
+    }
+    
+    .fade {
+      transition: opacity .2s ease-in-out;
+      -moz-transition: opacity .2s ease-in-out;
+      -webkit-transition: opacity .2s ease-in-out;
+    }
+    
+    span.highlight {
+      background-color: #ffffd0;
+    }
+  </style>
+  <link rel="icon" type="image/png" href="seal_icon.png">
+  <title>Data-Driven Design for Fourier Ptychographic Microscopy</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
+<!--   <nav align="center">
+    <ul>
+      <a href="#home"><a href="index.html">home</a></a> &nbsp&nbsp&nbsp&nbsp
+      <a href="#publications"><a href="pubs.html">publications</a></a>
+    </ul>
+  </nav>
+<hr /> -->
+  <br>
+  <br>
 
-<!-- Navigation bar -->
-<nav class="navbar navbar-default navbar-fixed-top">
-	<div class="container-nav">	
-		<div class="container-fluid">
-    		<ul class="nav navbar-nav">
-      			<li class="nav-item active"><a href="index.html">Home</a></li>
-      			<li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Build-your-own tutorial <span class="caret"></span></a>
-                     <ul class="dropdown-menu">
-                          <li><a class="nav-item dropdown-item" href="quickstart.html">Quick Start Guide</a></li>
-                          <li><a class="nav-item dropdown-item" href="tutorial.html">Full Tutorial</a></li>
-                        </ul>
-                </li>
-      			<li class="nav-item"><a href="gallery.html">Gallery</a></li>
-      			<li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Code <span class="caret"></span></a>
-                     <ul class="dropdown-menu">
-                          <li><a class="nav-item dropdown-item" href="https://github.com/Waller-Lab/DiffuserCam">3D Algorithm Code</a></li>
-                          <li><a class="nav-item dropdown-item" href="https://github.com/Waller-Lab/DiffuserCam-Tutorial">2D Tutorial Code</a></li>
-                        </ul>
-                </li>
-    		</ul>
-      	</div>
-    </div>
-</nav> 
+  <table width="800" border="0" align="center" cellspacing="0" cellpadding="0">
+    <tr>
+      <td>
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tr>
+              <p align="center">
+                <name>Data-Driven Design for Fourier Ptychographic Microscopy</name>
+              </p>
+              <p align="center">
+                <a href="https://people.eecs.berkeley.edu/~kellman/"><strong><font size=+1>Michael Kellman</font></strong></a>,
+                <a href="https://emrahbostan.com/"><font size=+1>Emrah Bostan</font></a>,
+                <font size=+1>Michael Chen</font>,
+                <a href="http://www.laurawaller.com/"><font size=+1>Laura Waller</font></a>
+              </p>
+              
+            </tr>
 
-<div class="container">
+            <tr>
+              <td width="100%" valign="middle">
+                <img src='./content/iccp_fpm_2019-03.png' style='width:800px'>
+                <p style="text-align:justify">
+                  Fourier Ptychographic Microscopy (FPM) achieves super-resolution Quantitative Phase Imaging (QPI) with an LED array microscope (left). Here, we show the super-resolved QPI reconstruction for heuristic multiplexing designs (middle) and our proposed learned designs (right). The respective LED pattern designs are shown below the phase reconstructions. Our learned LED source patterns enable improved reconstruction quality without sacrificing temporal resolution.
+                </p>
+              </td>
+            </tr>
+        </table>
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tr>
+              <h2><b>Abstract</b></h2>
+              <p style="text-align:justify">
+                Fourier Ptychographic Microscopy (FPM) is a computational imaging method that is able to super-resolve features beyond the diffraction-limit set by the objective lens of a traditional microscope. This is accomplished by using synthetic aperture and phase retrieval algorithms to combine many measurements captured by an LED array microscope with programmable source patterns. FPM provides simultaneous large field-of-view and high resolution imaging, but at the cost of reduced temporal resolution, thereby limiting live cell applications. In this work, we learn LED source pattern designs that compress the many required measurements into only a few, with negligible loss in reconstruction quality or resolution. This is accomplished by recasting the super-resolution reconstruction as a physics-based network and learning the experimental design to optimize the network's overall performance. Specifically, we learn LED patterns for different applications (e.g. amplitude contrast and quantitative phase imaging) and show that the designs we learn through simulation generalize well in the experimental setting. Further, we discuss a context-specific loss function, practical memory limitations, and interpretability of our learned designs.
+              </p>
+            </tr>
+          </td>
+        </table>
 
-	<div class="row">	
-		<h1><b>Data-driven Design for Fourier Ptychographic Microscopy</b></h1>
-		<h5><b><a href="https://people.eecs.berkeley.edu/~kellman/">Michael Kellman</a>
-		<img class="center" src="resources/setup.png" style="width:600px"> 
-	</div>
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tr>
+              <h2><b>Resources</b></h2>
+              <ul>
+                <li>Open source code on <b><a href="https://github.com/kellman/LearnedDesignFPM">GitHub</a></b></li>
+                <li>Open access PDF through <b><a href="https://arxiv.org/abs/1904.04175">ArXiv</a></b></li>
+                <li>Bibtex <b><a href="./content/citation.bib">citation</a></b></li>
+              </ul>
+              <!-- <p align=center>
+                <p align=center>
+                <a href="https://arxiv.org/abs/1904.04175">Preprint</a> &nbsp/&nbsp
+                <a href="https://github.com/kellman/LearnedDesignFPM">Github Code</a> &nbsp/&nbsp
+                <a href="./content/poster.pdf">Poster</a> &nbsp/&nbsp
+              </p> -->
+            </tr>
+          </td>
+        </table>
 
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tr>
+              <h2><b>Citations</b></h2>
+              <p style="text-align:justify">
 
-	<div class="row">
-		<h3><b>Abstract</b></h3>
-		<p>Fourier Ptychographic Microscopy (FPM) is a computational imaging method that is able to super-resolve features beyond the diffraction-limit set by the objective lens of a traditional microscope. This is accomplished by using synthetic aperture and phase retrieval algorithms to combine many measurements captured by an LED array microscope with programmable source patterns. FPM provides simultaneous large field-of-view and high resolution imaging, but at the cost of reduced temporal resolution, thereby limiting live cell applications. In this work, we learn LED source pattern designs that compress the many required measurements into only a few, with negligible loss in reconstruction quality or resolution. This is accomplished by recasting the super-resolution reconstruction as a Physics-based Neural Network and learning the experimental design to optimize the network’s overall performance. Specifically, we learn LED patterns for different applications (e.g. amplitude contrast and quantitative phase imaging) and show that the designs we learn through simulation generalize well in the experimental setting. Further, we discuss a context-specific loss function, practical memory limitations, and interpretability of our learned designs.</p>
-	</div>
+                <p>Michael Kellman, Emrah Bostan, Michael Chen, Laura Waller. "Data-driven Design for Fourier Ptychographic Microscopy." <i>International Conference for Computational Photography.</i> IEEE, 2019.</p>
 
-	<div class="row">
-		<h3><b>Resources</b></h3>
-		<ul>
-			<li>Open source code on <b><a href="https://github.com/Waller-Lab/DiffuserCam">GitHub</a></b></li>
-			<li>Open access PDF and supplemental materials through <b><a href="https://www.osapublishing.org/optica/abstract.cfm?uri=optica-5-1-1">OSA</a></b></li>
-			<li><b><a href="gallery.html">Gallery</a></b> of DiffuserCam reconstructions</li>
-		</ul>
-	</div>
+                <p>Michael Kellman, Emrah Bostan, Nicole Repina, Laura Waller. "Physics-based Learned Design: Optimized Coded-Illumination for Quantitative Phase Imaging." <i>Transactions on Computational Imaging.</i> IEEE, 2019.</p>
 
-	<div class="row">
-		<h3><b>Publications</b></h3>
-        
-		<p>Michael Kellman, Emrah Bostan, Michael Chen, Laura Waller. "Data-driven Design for Fourier Ptychographic Microscopy." <i>International Conference for Computational Photography</i> IEEE, 2019 </p>
+              </p>
+            </tr>
+          </td>
+        </table>
 
-		<p>Michael Kellman, Emrah Bostan, Nicole Repina, Laura Waller. "Physics-based Learned Design: Optimized Coded-Illumination for Quantitative Phase Imaging." <i>Transactions on Computational Imaging.</i> IEEE, 2019 </p>
-	</div>
+<hr />
+<table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+<tr>
+<td width="100%" valign="center">
+<center> 
+  Copyright 2019 Michael Kellman. All rights reserved.<br>Template borrowed from <a href="http://jonbarron.info/">Jon Barron</a>.
+</center>
+<br/>
+<center>
+<a href="http://www.hitwebcounter.com" target="_blank"> <img src="http://hitwebcounter.com/counter/counter.php?page=7099610&style=0007&nbdigits=5&type=ip&initCount=0" title="URL Counter" Alt="URL Counter"   border="0" > </a><br />
+</center>
+</td>
+</tr>
+</table>
 
-	<div class="row">
-       <p>If you found this library useful in your research, please consider citing</p>
-        <pre><code>
-        @article{kellman2019ldfpm,
-          title={Data-driven Design for Fourier Ptychographic Microscopy},
-          author={Kellman, Michael and Bostan, Emrah and Chen, Michael and Waller, Laura},
-          journal={Proceedings in International Conference on Computational Photography},
-          year={2019}
-        }
-        </code></pre>
-    </div>
-            
-
-</div>
-<nav class="navbar navbar-default">
-</nav>
-
+<!--         </table>
+        <script type="text/javascript">
+          var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+          document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script type="text/javascript">
+          try {
+            var pageTracker = _gat._getTracker("UA-7580334-1");
+            pageTracker._trackPageview();
+          } catch (err) {}
+        </script>
+        </td>
+    </tr>
+  </table> -->
 </body>
+
 </html>
