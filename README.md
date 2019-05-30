@@ -25,13 +25,13 @@ If you found this library/demonstration useful in your research, please consider
 @article{kellman2019data,
     title={Data-Driven Design for Fourier Ptychographic Microscopy},
     author={Kellman, Michael and Bostan, Emrah and Chen, Michael and Waller, Laura},
-    journal={international conference for computational photography},
+    journal={International Conference for Computational Photography},
     year={2019}
 }
 ```
 
 
-
+## TO BE DONE
 
 Put gif of learning LED patterns by iterations
 put low res/single LED/heuristic/learned result
