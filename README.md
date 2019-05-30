@@ -21,12 +21,14 @@ Simulated datasets and experimental data is [here]().
 
 If you found this library/demonstration useful in your research, please consider citing
 
-```@article{kellman2019data,
+```
+@article{kellman2019data,
     title={Data-Driven Design for Fourier Ptychographic Microscopy},
     author={Kellman, Michael and Bostan, Emrah and Chen, Michael and Waller, Laura},
     journal={international conference for computational photography},
     year={2019}
-}```
+}
+```
 
 
 
