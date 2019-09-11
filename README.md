@@ -11,8 +11,16 @@ This library provides an implementation of physics-based learned design for Four
 1. To run the code, please download all of the training and experimental data from [here]([data]). We provide synthetic training and experimental testing data for both amplitude and quantitative phase imaging applications.
 
 2. Training (make sure to set path argument to the desired training data). We have also included an ipython notebook that has similar functionality.
-``` python train.py --verbose True --training_iter 100 --batch_size 5 --test_freq 1 --step_size 0.01 --num_unrolls 100 --alpha 0.1 --num_bf 1 --num_df 4 --loss abs --tensorboard True --path=./training_data_amplitude.mat```
-Arguments:
+``` python train.py --verbose True --training_iter 100 --batch_size 5 --test_freq 1 --step_size 0.01 --num_unrolls 75 --alpha 0.1 --num_bf 1 --num_df 9 --loss abs --tensorboard True --path=./training_data_amplitude.mat```
+    
+3. Monitor training by starting tensorboard
+```tensorboard --logdir runs```
+
+4. Inference can be run using the ipython notebook Inference (experimental data).
+
+
+**Arguments:**
+
     * path (string) - _training dataset path_
     * training_iter (int) - _number of iterations for training_
     * step_size (float) - _step size for training_
@@ -29,11 +37,6 @@ Arguments:
     * num_bf (int) - _number of bright-field images for learned design constraint_
     * num_df (int) - _number of dark-field images for learned design constraint_
     * num_unrolls (int) - _number of layers for physics-based network_
-    
-3. Monitor training by starting tensorboard
-```tensorboard --logdir runs```
-
-4. Inference can be run using the ipython notebook Inference (experimental data).
 
 
 ## Requirements
@@ -47,7 +50,7 @@ Arguments:
 
 [2] Michael Kellman, Emrah Bostan, Nicole Repina, Laura Waller. "Physics-based Learned Design: Optimized Coded-Illumination for Quantitative Phase Imaging." Transactions on Computational Imaging. IEEE, 2019.
 
-If you found this library/demonstration useful in your research, please consider citing
+If you found this library/demonstration useful in your research, please consider citing and checkout my other [research](mrkellman.com)
 
 ```
 @article{kellman2019data,
@@ -57,11 +60,5 @@ If you found this library/demonstration useful in your research, please consider
     year={2019}
 }
 ```
-
-## TO BE DONE
-
-Put gif of learning LED patterns by iterations
-put low res/single LED/heuristic/learned result
-
 
 [data]:https://drive.google.com/open?id=1vfvI_AqS5XGdLabum4dB0jOl2u0AAFVy
