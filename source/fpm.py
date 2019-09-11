@@ -1,29 +1,19 @@
-import os
-import argparse
-import time
+import torch
+import torch.nn as nn
+
 import numpy as np
+import scipy as sp
 import sys
-import matplotlib.pyplot as plt
-import sigpy.plot as pl
-import scipy.io as sio
+sys.path.append('./source/')
+import utility
+import pytorch_complex
 
-import torch
-import torch.nn as nn
-import torch.optim as optim
-import torch.autograd as ag
-
-import torch
-import torch.nn as nn
-from torch.utils.data import Dataset, DataLoader, SequentialSampler, BatchSampler
-
-from utility import *
-from pytorch_complex import *
-
-mul_c  = ComplexMul().apply
-div_c  = ComplexDiv().apply
-abs_c  = ComplexAbs().apply
-abs2_c = ComplexAbs2().apply 
-exp_c  = ComplexExp().apply
+mul_c  = pytorch_complex.ComplexMul().apply
+div_c  = pytorch_complex.ComplexDiv().apply
+abs_c  = pytorch_complex.ComplexAbs().apply
+abs2_c = pytorch_complex.ComplexAbs2().apply 
+exp_c  = pytorch_complex.ComplexExp().apply
+conj  = pytorch_complex.conj
 
 EPS = 1e-7
 
@@ -37,53 +27,9 @@ def F(x):
 def iF(x):
     return np.fft.fftshift(np.fft.ifft2(np.fft.ifftshift(x)))
 
-
-class FPMDataset(Dataset):
-
-    def __init__(self, mat_file, root_dir, truth=None, cleanMeas = None, noisyMeas=None):
-        """
-        Args:
-            mat_file (string): Path to the csv file with annotations.
-            root_dir (string): Directory with all the images.
-            transform (callable, optional): Optional transform to be applied
-                on a sample.
-        """
-#         self.d = sio.loadmat(mat_file)
-        self.root_dir = root_dir
-        self.mat_file = mat_file
-#         print(self.root_dir + self.mat_file)
-        
-        self.truth = truth
-        self.cleanMeas = cleanMeas
-        self.noisyMeas = noisyMeas # can also be clean, but is optionally noisy
-
-    def __len__(self):
-        return self.truth.shape[0]
-    
-    def __getitem__(self, idx):
-        return torch.from_numpy(self.noisyMeas[idx,...].astype(np_dtype)), torch.from_numpy(self.truth[idx,...].astype(np_dtype))
-    
-    def loadDataset(self, ):
-        d = sio.loadmat(self.root_dir + self.mat_file)
-        self.truth = d['truth']
-        self.cleanMeas = d['clean']
-        self.noisyMeas = d['noisy']
-        print(self.truth.shape, self.cleanMeas.shape, self.noisyMeas.shape)
-        return d
-    
-    def saveDataset(self, specs = {}):
-        import os
-        directory = os.path.dirname(self.root_dir)
-        if not os.path.exists(directory):
-            os.makedirs(directory)
-        d = {'truth':self.truth,'clean':self.cleanMeas,'noisy':self.noisyMeas}
-        specs = {**d, **specs}
-        print([a for a,b in specs.items()])
-        sio.savemat(self.root_dir + self.mat_file,specs)
-
-class FPM(nn.Module):
-    def __init__(self, Np, na, na_illum, na_list, wl, ps, mag, alpha, maxIter, measurements, C_init = None, T=4, testFlag = False, device='cpu'):
-        super(FPM, self).__init__()
+class fpm(nn.Module):
+    def __init__(self, Np, na, na_illum, na_list, wl, ps, mag, alpha, maxIter, measurements, C_init = None, testFlag = False, device='cpu'):
+        super(fpm, self).__init__()
 
         if C_init is not None:
             self.Nmeas = C_init.shape[0]
@@ -130,8 +76,6 @@ class FPM(nn.Module):
         self.measurements = measurements
 
         self.device = device
-    
-        self.T = T
     
     
     def step(self, x, device='cpu'):
@@ -211,18 +155,18 @@ class FPM(nn.Module):
         # cropping
         measurements_cropped = torch.zeros(measurements.shape[0],self.Np_meas[0],self.Np_meas[1],2)
         for img_idx in range(measurements.shape[0]):
-            fmeas = fftshift2(torch.fft(measurements[img_idx,...],2))
+            fmeas = utility.fftshift2(torch.fft(measurements[img_idx,...],2))
             tmp = fmeas[self.crops[0]:self.crops[1],self.crops[2]:self.crops[3],:]
-            measurements_cropped[img_idx,...] = (1/self.scaling) * torch.ifft(ifftshift2(tmp),2)
+            measurements_cropped[img_idx,...] = (1/self.scaling) * torch.ifft(utility.ifftshift2(tmp),2)
         return measurements_cropped
     
     def padMeasurements(self, measurements):
         # padding
         measurements_padded = torch.zeros(measurements.shape[0],self.Np[0],self.Np[1],2)
         for ii in range(measurements.shape[0]):
-            fmeas = fftshift2(torch.fft(measurements[ii,...],2))
+            fmeas = utility.fftshift2(torch.fft(measurements[ii,...],2))
             measurements_padded[ii,self.crops[0]:self.crops[1],self.crops[2]:self.crops[3],:] = fmeas
-            measurements_padded[ii,...] = (self.scaling) * torch.ifft(ifftshift2(measurements_padded[ii,...]),2)
+            measurements_padded[ii,...] = (self.scaling) * torch.ifft(utility.ifftshift2(measurements_padded[ii,...]),2)
         return measurements_padded
     
     def makeField(self,amp,phase,device="cpu"):
@@ -248,7 +192,6 @@ class FPM(nn.Module):
         ux = np.linspace(-1/(2*self.ps_recon),1/(2*self.ps_recon), self.Np[0])
         uy = np.linspace(-1/(2*self.ps_recon),1/(2*self.ps_recon), self.Np[1])
         uxx,uyy = np.meshgrid(ux,uy)
-        
         return xx,yy,uxx,uyy
         
     def genPupil(self,wl,na):
