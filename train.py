@@ -1,8 +1,27 @@
 """Trains the model in model.py on loaded dataset.
 
-python train.py --verbose True --num_iter 100 --batch_size 5 --test_freq 1 --step_size 0.005 --num_unrolls 100 --alpha 0.1 --num_bf 1 --num_df 4 --loss abs --tensorboard True     
+python train.py --verbose True --training_iter 100 --batch_size 5 --test_freq 1 --step_size 0.005 --num_unrolls 100 --alpha 0.1 --num_bf 1 --num_df 4 --loss abs --tensorboard True  --path ./data/training_data_amplitude.mat   
+
+Argument parameters:
+* path (string) - _training dataset path_
+* training_iter (int) - _number of iterations for training_
+* step_size (float) - _step size for training_
+* batch_size (int) - _batch size per training iteration_
+* num_batch (int) - _number of batches_
+* loss (string) - _loss function for training (mse on the complex value, mse on the amplitude, mse on the phase)_
+* test_freq (int) - _test dataset evaluated every number of training iterations_
+* optim (string) - _optimizer for training (_e.g._ adam, sgd)_
+* gpu (int) - _GPU device number used for training (-1 for cpu)_
+* verbose (bool) - _prints extra outputs_
+* tensorboard (bool) - _writes out intermediate training information to a tensorboard_
+* alpha (float) - _step size for physics-based network_
+* num_meas (int) - _number of measurements for the learned design_
+* num_bf (int) - _number of bright-field images for learned design constraint_
+* num_df (int) - _number of dark-field images for learned design constraint_
+* num_unrolls (int) - _number of layers for physics-based network_
 
 """
+
 import os
 import argparse
 import sys
