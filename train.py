@@ -29,12 +29,11 @@ parser = argparse.ArgumentParser('experimental model demo')
 parser.add_argument('--num_batches', type=int, default=10)
 parser.add_argument('--batch_size', type=int, default=10)
 parser.add_argument('--path', type=str, default='/tmp/')
-parser.add_argument('--num_iter', type=int, default=1)
+parser.add_argument('--training_iter', type=int, default=1)
 parser.add_argument('--step_size', type=float, default=0.001)
 parser.add_argument('--loss', type=str, default='mse')
 parser.add_argument('--test_freq', type=int, default=20)
 parser.add_argument('--optim', type=str, default='adam')
-parser.add_argument('--viz', action='store_true')
 parser.add_argument('--gpu', type=int, default=0)
 parser.add_argument('--verbose', type=bool, default=False)
 parser.add_argument('--tensorboard', type=bool, default=False)
@@ -69,8 +68,8 @@ if __name__ == '__main__':
         device = torch.device("cuda:"+str(args.gpu) if torch.cuda.is_available() else "cpu")
         
     # Load dataset
-    path = '/home/kellman/Workspace/PYTHON/Design_FPM_pytorch/datasets_train_iccp_results/train_amp_exp_n10000.mat' 
-    dataset = dataloader.dataloader(path, args.num_batches, args.batch_size, device)
+    args.path = '/home/kellman/Workspace/PYTHON/Design_FPM_pytorch/datasets_train_iccp_results/train_amp_exp_n10000.mat' 
+    dataset = dataloader.dataloader(args.path, args.num_batches, args.batch_size, device)
     metadata = dataset.getMetadata()
     metadata['Np'] = dataset[0][0].shape[2:]
     metadata['num_bf'] = args.num_bf
@@ -100,8 +99,8 @@ if __name__ == '__main__':
     else:
         assert False, 'Not valid loss function (try mse)'
         
-    input_data, output_data = dataset[0]
-    xtest = network.initialize(input_data[:1,...].to(device), device=device)
+#     input_data, output_data = dataset[0]
+#     xtest = network.initialize(input_data[:1,...].to(device), device=device)
     
     # Setup tensorboard writer
     exp_string = 'batch_size={0:d}_stepsize={1:.3f}_loss_fn={8:}_optim={2:}_num_unrolls={3:d}_alpha={4:.3f}_num_df={5:d}_num_bf={6:d}_num_leds={7:d}'.format(args.batch_size, args.step_size, args.optim, args.num_unrolls, args.alpha, args.num_df, args.num_bf, metadata['Nleds'], args.loss)
@@ -112,7 +111,7 @@ if __name__ == '__main__':
         writer = SummaryWriter(exp_dir)
         
     # training loop
-    for ii in range(args.num_iter):
+    for ii in range(args.training_iter):
         batch_index = np.mod(ii,args.num_batches-1)
         input_data, output_data = dataset[batch_index]        
         
