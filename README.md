@@ -49,7 +49,7 @@ This library provides an implementation of physics-based learned design for Four
 
 [2] **Michael Kellman**, Emrah Bostan, Nicole Repina, Laura Waller. _"Physics-based Learned Design: Optimized Coded-Illumination for Quantitative Phase Imaging."_ Transactions on Computational Imaging. IEEE, 2019.
 
-If you found this library/demonstration useful in your research, please consider citing and checkout my other [research](https://people.eecs.berkeley.edu/~kellman/)
+If you found this library/demonstration useful for your research, please consider citing this work and checking out my other [research](https://people.eecs.berkeley.edu/~kellman/)
 
 ```
 @article{kellman2019data,
@@ -59,8 +59,5 @@ If you found this library/demonstration useful in your research, please consider
     year={2019}
 }
 ```
-
-If you are interested in more work like this checkout my [website].
-
 [data]:https://drive.google.com/open?id=1vfvI_AqS5XGdLabum4dB0jOl2u0AAFVy
-[website]:https://people.eecs.berkeley.edu/~kellman/
+[research]:https://people.eecs.berkeley.edu/~kellman/
