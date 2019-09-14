@@ -4,7 +4,7 @@
 
 Fourier Ptychographic Microscopy (FPM) is a computational imaging method that is able to super-resolve features beyond the diffraction-limit set by the objective lens of a traditional microscope. This is accomplished by using synthetic aperture and phase retrieval algorithms to combine many measurements captured by an LED array microscope with programmable source patterns. FPM provides simultaneous large field-of-view and high resolution imaging, but at the cost of reduced temporal resolution, thereby limiting live cell applications. In this work, we learn LED source pattern designs that compress the many required measurements into only a few, with negligible loss in reconstruction quality or resolution. This is accomplished by recasting the super-resolution reconstruction as a Physics-based Network and learning the experimental design to optimize the network's overall performance. Specifically, we learn LED patterns for different applications (_e.g._ amplitude contrast and quantitative phase imaging) and show that the designs we learn through simulation generalize well in the experimental setting.
 
-This library provides an implementation of physics-based learned design for Fourier Ptychographic Microscopy (FPM). Reconstructions are implemented in Pytorch, learning is accomplished using backpropagation, and all is fully supported to run on GPU. We provide synthetic training data and experimental testing data used in the paper's experiments [here]([data]).
+This library provides an implementation of physics-based learned design for Fourier Ptychographic Microscopy (FPM). Reconstructions are implemented in Pytorch, learning is accomplished using backpropagation, and all is fully supported to run on GPU. We provide synthetic training data and experimental testing data used in this work's experiments [here]([data]).
 
 ## Demonstration
 
@@ -21,22 +21,22 @@ This library provides an implementation of physics-based learned design for Four
 
 **Arguments:**
 
-    * path (string) - _training dataset path_
-    * training_iter (int) - _number of iterations for training_
-    * step_size (float) - _step size for training_
-    * batch_size (int) - _batch size per training iteration_
-    * num_batch (int) - _number of batches_
-    * loss (string) - _loss function for training (mse on the complex value, mse on the amplitude, mse on the phase)_
-    * test_freq (int) - _test dataset evaluated every number of training iterations_
-    * optim (string) - _optimizer for training (_e.g._ adam, sgd)_
-    * gpu (int) - _GPU device number used for training (-1 for cpu)_
-    * verbose (bool) - _prints extra outputs_
-    * tensorboard (bool) - _writes out intermediate training information to a tensorboard_
-    * alpha (float) - _step size for physics-based network_
-    * num_meas (int) - _number of measurements for the learned design_
-    * num_bf (int) - _number of bright-field images for learned design constraint_
-    * num_df (int) - _number of dark-field images for learned design constraint_
-    * num_unrolls (int) - _number of layers for physics-based network_
+    * path (string) - training dataset path
+    * training_iter (int) - number of iterations for training
+    * step_size (float) - step size for training
+    * batch_size (int) - batch size per training iteration
+    * num_batch (int) - number of batches
+    * loss (string) - loss function for training (mse on the complex value, mse on the amplitude, mse on the phase)
+    * test_freq (int) - test dataset evaluated every number of training iterations
+    * optim (string) - optimizer for training (_e.g._ adam, sgd)
+    * gpu (int) - GPU device number used for training (-1 for cpu)
+    * verbose (bool) - prints extra outputs
+    * tensorboard (bool) - writes out intermediate training information to a tensorboard
+    * alpha (float) - step size for physics-based network
+    * num_meas (int) - number of measurements for the learned design
+    * num_bf (int) - number of bright-field images for learned design constraint
+    * num_df (int) - number of dark-field images for learned design constraint
+    * num_unrolls (int) - number of layers for physics-based network
 
 ## Requirements
 
@@ -45,9 +45,9 @@ This library provides an implementation of physics-based learned design for Four
 
 ## References
 
-[1] Michael Kellman, Emrah Bostan, Michael Chen, Laura Waller. "Data-driven Design for Fourier Ptychographic Microscopy." International Conference for Computational Photography. IEEE, 2019.
+[1] **Michael Kellman**, Emrah Bostan, Michael Chen, Laura Waller. _"Data-driven Design for Fourier Ptychographic Microscopy." International Conference for Computational Photography_. IEEE, 2019.
 
-[2] Michael Kellman, Emrah Bostan, Nicole Repina, Laura Waller. "Physics-based Learned Design: Optimized Coded-Illumination for Quantitative Phase Imaging." Transactions on Computational Imaging. IEEE, 2019.
+[2] **Michael Kellman**, Emrah Bostan, Nicole Repina, Laura Waller. _"Physics-based Learned Design: Optimized Coded-Illumination for Quantitative Phase Imaging."_ Transactions on Computational Imaging. IEEE, 2019.
 
 If you found this library/demonstration useful in your research, please consider citing and checkout my other [research](https://people.eecs.berkeley.edu/~kellman/)
 
@@ -60,4 +60,7 @@ If you found this library/demonstration useful in your research, please consider
 }
 ```
 
+If you are interested in more work like this checkout my [website].
+
 [data]:https://drive.google.com/open?id=1vfvI_AqS5XGdLabum4dB0jOl2u0AAFVy
+[website]:https://people.eecs.berkeley.edu/~kellman/
