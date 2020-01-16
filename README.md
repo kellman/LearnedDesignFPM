@@ -8,7 +8,11 @@ This library provides an implementation of physics-based learned design for Four
 
 ## Demonstration
 
-1. Download all of the training and experimental data from [here]([data]). We provide synthetic training and experimental testing data for both amplitude and quantitative phase imaging applications.
+1. Download all of the training and experimental data below. We provide synthetic training and experimental testing data for both amplitude and quantitative phase imaging applications.
+    * [Training data for quantitative phase imaging](https://drive.google.com/file/d/1oQ-K53pDB4ilDVFOLxTe8r3xjR3NBViM/view)
+    * [Training data for amplitude imaging](https://drive.google.com/file/d/1kM_ub7yTCrh68ADykjiCUHCXAI6ou7w4/view)
+    * [Experimental testing data for amplitude imaging](https://drive.google.com/a/berkeley.edu/file/d/1U41k1hFSJ3FS6rh6etAAdX9AkTCUXRsK/view?usp=sharing)
+    * [Experimental testing data for quantitative phase imaging](https://drive.google.com/a/berkeley.edu/file/d/1vfvI_AqS5XGdLabum4dB0jOl2u0AAFVy/view?usp=sharing)
 
 2. Training (make sure to set path argument to the desired training data). We have also included an ipython notebook that has similar functionality.
 ``` python train.py --verbose True --training_iter 100 --batch_size 5 --test_freq 1 --step_size 0.01 --num_unrolls 75 --alpha 0.1 --num_bf 1 --num_df 9 --loss abs --tensorboard True --path=./training_data_amplitude.mat```
