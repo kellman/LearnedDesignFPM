@@ -123,6 +123,10 @@ class fpm(nn.Module):
         return g
     
     def generateSingleMeas(self,field,device="cpu"):
+        self.pupils = self.pupils.to(self.device)
+        self.planewaves = self.planewaves.to(self.device)
+        self.P = self.P.to(self.device)
+        
         output = mul_c(self.planewaves,field)
         output = torch.fft(output,2)
         output = mul_c(self.P, output)
@@ -131,6 +135,10 @@ class fpm(nn.Module):
         return output
     
     def generateMultiMeas(self,field,device="cpu"):
+        self.pupils = self.pupils.to(self.device)
+        self.planewaves = self.planewaves.to(self.device)
+        self.P = self.P.to(self.device)
+        
         output = mul_c(self.planewaves,field)
         output = torch.fft(output,2)
         output = mul_c(self.P, output)

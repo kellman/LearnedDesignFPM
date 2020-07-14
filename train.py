@@ -88,7 +88,7 @@ if __name__ == '__main__':
         
     # Load dataset
     args.path = '/home/kellman/Workspace/PYTHON/Design_FPM_pytorch/datasets_train_iccp_results/train_amp_exp_n10000.mat' 
-    dataset = dataloader.dataloader(args.path, args.num_batches, args.batch_size, device)
+    dataset = dataloader.dataloader(args.path, args.Nbatch_size, args.loadBatchFlag, device)
     metadata = dataset.getMetadata()
     metadata['Np'] = dataset[0][0].shape[2:]
     metadata['num_bf'] = args.num_bf
@@ -195,7 +195,7 @@ if __name__ == '__main__':
                             'num_bf':args.num_bf,
                             'num_df':args.num_df,
                            }             
-                torch.save(saveDict, exp_dir + '/ckpt.tar')
+                torch.save(saveDict, exp_dir + '/ckpt_{0:04d}.tar'.format(ii))
                 
         # progress print statement
         print(format_loss_monitor(ii, loss_testing / args.batch_size, end_time - start_time), end="\r")
